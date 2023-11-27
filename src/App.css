@@ -31,7 +31,7 @@
   .amountContainer {
     display: flex;
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;
     justify-content: space-evenly;
     .inputField {
       border-radius: 8px;
@@ -39,7 +39,9 @@
       padding: 0.6em 1.2em;
       font-size: 1em;
       font-weight: 500;
-      max-width: 300px;
+      max-width: 200px;
+      background-color: aliceblue;
+      color: black;
     }
   }
   .resultContainer {

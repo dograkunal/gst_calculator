@@ -1,0 +1,59 @@
+.baseContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .headerBase {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgb(255, 136, 0);
+    padding: 15px;
+  }
+
+  .radioButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+    padding: 20px;
+    .rateHead {
+      color: #fff;
+      font-size: 15px;
+    }
+    .rateValue {
+      display: flex;
+      margin: 5px;
+      font-size: 15px;
+    }
+  }
+  .amountContainer {
+    display: flex;
+    width: 90%;
+    max-width: 500px;
+    justify-content: space-evenly;
+    .inputField {
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+    }
+  }
+  .resultContainer {
+    display: flex;
+    margin: 20px;
+    align-items: center;
+    flex-direction: column;
+    .infoLabel {
+      font-size: 10px;
+    }
+  }
+}
+
+input[type="radio"] {
+  border: 0px;
+  width: 5%;
+  height: 16px;
+}

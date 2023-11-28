@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -13,15 +13,14 @@ function App() {
   const [roundoff, setRoundOff] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  const roundOffWithSign = (number) => {
-    const factor = Math.pow(10, 2);
-    const rounded = Math.round(number * factor) / factor;
-    const difference = rounded - number;
+  const roundOffWithSign = (original, gst, totalSale) => {
+    const calculatedTotal = Number(original) + Number(parseFloat(gst));
+    const roundOffAmount = totalSale - calculatedTotal;
 
     return {
-      roundedAmount: rounded.toFixed(2),
-      sign: difference >= 0 ? "+" : "-",
-      difference: Math.abs(difference).toFixed(2),
+      roundedAmount: calculatedTotal.toFixed(2),
+      sign: roundOffAmount >= 0 ? "+" : "-",
+      difference: Math.abs(roundOffAmount).toFixed(2),
     };
   };
 
@@ -33,10 +32,7 @@ function App() {
       const gst = (original * (selectedGstRate / 100)).toFixed(2);
       setGstAmount(gst);
 
-      const roundOffResult = roundOffWithSign(
-        original + parseFloat(gst),
-        value
-      );
+      const roundOffResult = roundOffWithSign(original, gst, value);
       setRoundOff(roundOffResult);
     }
   }, [submitted, value, selectedGstRate]);
@@ -47,9 +43,9 @@ function App() {
       return;
     }
 
-    setOriginalAmount(null);
-    setGstAmount(null);
-    setRoundOff({});
+    // setOriginalAmount(null);
+    // setGstAmount(null);
+    // setRoundOff({});
     setSubmitted(true);
   };
 
@@ -60,6 +56,8 @@ function App() {
   const handleTypeChange = (event) => {
     setselectedSaleType(event.target.value);
   };
+
+  console.log(roundoff, "roundoff");
 
   const cgstPercentage = (selectedGstRate / 2).toFixed(2);
   const cgstAmount = (gstAmount / 2).toFixed(2);

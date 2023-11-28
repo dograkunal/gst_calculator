@@ -47,10 +47,22 @@
   .resultContainer {
     display: flex;
     margin: 20px;
-    align-items: center;
+    width: 90%;
+    /* align-items: center; */
     flex-direction: column;
-    .infoLabel {
-      font-size: 10px;
+    justify-content: flex-start;
+    .taxDetailContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      .taxLabel {
+        margin: 2px;
+        font-size: 18px;
+      }
+      .infoLabel {
+        margin: 2px;
+        font-size: 16px;
+      }
     }
   }
 }
